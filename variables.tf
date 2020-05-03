@@ -1,3 +1,21 @@
+locals {
+  env = "${terraform.workspace}"
+
+  context = {
+    default = {
+      quantidadeInstancias = 1
+    }
+    dev = {
+      quantidadeInstancias = 1
+    }
+    prod = {
+      quantidadeInstancias = 2
+    }
+  }
+
+  context_variables = "${local.context[local.env]}"
+}
+
 variable "aws_region" {
   description = "The AWS region to create things in."
   default     = "us-east-1"
@@ -15,11 +33,15 @@ variable "aws_amis" {
 variable "KEY_NAME" {
   default = "fiap-lab"
 }
+
 variable "PATH_TO_KEY" {
   default = "/app/.ssh/fiap-lab.pem"
 }
+
 variable "INSTANCE_USERNAME" {
   default = "ubuntu"
 }
+
 variable "ECR_REGISTRY" {
 }
+

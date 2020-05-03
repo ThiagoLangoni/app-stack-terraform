@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "trabalho-final-333947"
-    key    = "state/fiap-cicd-deploy"
+    bucket = "app"
+    key    = "ap-cicd-deploy"
     region = "us-east-1"
   }
 }
