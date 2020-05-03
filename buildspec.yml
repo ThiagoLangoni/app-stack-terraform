@@ -11,10 +11,10 @@ phases:
       - PROJ_NAME="$PROJECT_NAME"
       - REPOSITORY_URI="$ECR_ADDRESS"
       - mkdir .aws 
-      - aws s3 cp s3://trabalho-final-333947/instance-need/.aws/credentials .aws/ 
-      - aws s3 cp s3://trabalho-final-333947/instance-need/.aws/config .aws/
+      - aws s3 cp s3://app-stack-terraform-333947/instance-need/.aws/credentials .aws/ 
+      - aws s3 cp s3://app-stack-terraform-333947/instance-need/.aws/config .aws/
       - mkdir .ssh 
-      - aws s3 cp s3://trabalho-final-333947/instance-need/.ssh/fiap-lab.pem .ssh/ 
+      - aws s3 cp s3://app-stack-terraform-333947/instance-need/.ssh/fiap-lab.pem .ssh/ 
   pre_build:
     commands:
       - login=$(aws ecr get-login --region=us-east-1)
